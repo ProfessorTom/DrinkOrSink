@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  DrinkOrSink
-//
-//  Created by Jean Mainguy on 08.03.18.
-//  Copyright © 2018 eGym. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
