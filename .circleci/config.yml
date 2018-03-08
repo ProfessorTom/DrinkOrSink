@@ -23,6 +23,7 @@ jobs:
           path: /Users/distiller/project/output
       - store_test_results:
           path: /Users/distiller/project/output/scan
+      - run: bash <(curl -s https://codecov.io/bash)
 
 workflows:
   version: 2
