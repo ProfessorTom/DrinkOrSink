@@ -1,0 +1,3 @@
+scheme "DrinkOrSink"
+sdk "iphoneos11.2"
+output_directory "./"
