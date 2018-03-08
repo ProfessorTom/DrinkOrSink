@@ -3,12 +3,14 @@ jobs:
   build-and-test:
     macos:
       xcode: "9.2.0"
+    shell: /bin/bash --login -eo pipefail
     working_directory: /Users/distiller/project
     environment:
       FL_OUTPUT_DIR: /Users/distiller/project/output
     steps:
       - checkout
       - run: mkdir $FL_OUTPUT_DIR
+      - run: gem install bundler
       - run: bundle install
       - run: bundle exec fastlane test
       - store_artifacts:
