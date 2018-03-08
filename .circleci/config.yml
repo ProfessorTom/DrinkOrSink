@@ -7,12 +7,18 @@ jobs:
     working_directory: /Users/distiller/project
     environment:
       FL_OUTPUT_DIR: /Users/distiller/project/output
+      LANG: en_US.UTF-8
+      LANGUAGE: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
     steps:
       - checkout
       - run: mkdir $FL_OUTPUT_DIR
       - run: echo "ruby-2.4" > ~/.ruby-version
       - run: bundle install
       - run: bundle exec fastlane test
+      - run:
+          command: cp $FL_OUTPUT_DIR/scan/report.junit $FL_OUTPUT_DIR/scan/results.xml
+          when: always
       - store_artifacts:
           path: /Users/distiller/project/output
       - store_test_results:
