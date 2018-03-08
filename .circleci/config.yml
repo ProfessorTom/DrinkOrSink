@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  test:
+  build-and-test:
     macos:
       xcode: "9.2.0"
     steps:
