@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run: mkdir $FL_OUTPUT_DIR
-      - run: gem install bundler
+      - run: rbenv global 2.5.0
       - run: bundle install
       - run: bundle exec fastlane test
       - store_artifacts:
