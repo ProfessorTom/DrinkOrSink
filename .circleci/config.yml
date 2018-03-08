@@ -1,23 +1,16 @@
 version: 2
 jobs:
-  build:
+  build-and-test:
     macos:
       xcode: "9.2.0"
     working_directory: /Users/distiller/project
     environment:
       FL_OUTPUT_DIR: /Users/distiller/project/output
-      FASTLANE_LANE: test
-    shell: /bin/bash --login -o pipefail
     steps:
       - checkout
       - run: mkdir $FL_OUTPUT_DIR
       - run: bundle install
-      - run:
-          name: Fastlane
-          command: bundle exec fastlane $FASTLANE_LANE
-      - run:
-          command: cp $FL_OUTPUT_DIR/scan/report.junit $FL_OUTPUT_DIR/scan/results.xml
-          when: always
+      - run: bundle exec fastlane test
       - store_artifacts:
           path: /Users/distiller/project/output
       - store_test_results:
@@ -25,6 +18,6 @@ jobs:
 
 workflows:
   version: 2
-  build:
+  build-and-test:
     jobs:
-      - build
+      - build-and-test
