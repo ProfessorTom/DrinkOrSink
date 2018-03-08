@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DrinkOrSink" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5P-hi-cOG" userLabel="Play Button">
+                                <rect key="frame" x="112" y="321" width="150" height="45"/>
+                                <accessibility key="accessibilityConfiguration" identifier="PlayButton"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="GJd-uB-Kc5"/>
+                                    <constraint firstAttribute="height" constant="45" id="rW3-5Q-tWr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <state key="normal" title="START"/>
+                                <connections>
+                                    <action selector="playButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PDj-YO-mAn"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tB-36-CMx">
+                                <rect key="frame" x="32" y="321" width="70" height="45"/>
+                                <accessibility key="accessibilityConfiguration" identifier="DrinkButton"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="0aV-XN-lSa"/>
+                                    <constraint firstAttribute="height" constant="45" id="4gj-ct-E8k"/>
+                                </constraints>
+                                <state key="normal" title="DRINK"/>
+                                <connections>
+                                    <action selector="drinkButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Ls-g1-73k"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGF-v8-qjg">
+                                <rect key="frame" x="272" y="321" width="70" height="45"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SinkButton"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="RPw-QB-Chk"/>
+                                    <constraint firstAttribute="height" constant="45" id="kGo-Dq-WqW"/>
+                                </constraints>
+                                <state key="normal" title="SINK">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sinkButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D0p-Fv-h3a"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink or Sink: You choose..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JyA-yu-Oqh" userLabel="Game Label">
+                                <rect key="frame" x="82.5" y="250" width="209.5" height="21"/>
+                                <accessibility key="accessibilityConfiguration" identifier="GameLabel"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7tB-36-CMx" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="C5m-84-krw"/>
+                            <constraint firstItem="CGF-v8-qjg" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="EeX-gh-dZT"/>
+                            <constraint firstItem="JyA-yu-Oqh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="KFo-pj-4uc"/>
+                            <constraint firstItem="L5P-hi-cOG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="VZo-4U-IFy"/>
+                            <constraint firstItem="CGF-v8-qjg" firstAttribute="leading" secondItem="L5P-hi-cOG" secondAttribute="trailing" constant="10" id="Xgw-mV-ohA"/>
+                            <constraint firstItem="JyA-yu-Oqh" firstAttribute="bottom" secondItem="L5P-hi-cOG" secondAttribute="top" constant="-50" id="bW2-Fc-0P7"/>
+                            <constraint firstItem="L5P-hi-cOG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="veg-sZ-RzG"/>
+                            <constraint firstItem="7tB-36-CMx" firstAttribute="trailing" secondItem="L5P-hi-cOG" secondAttribute="leading" constant="-10" id="wI7-l0-LgU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="drinkButton" destination="7tB-36-CMx" id="9IJ-G1-Bi4"/>
+                        <outlet property="gameLabel" destination="JyA-yu-Oqh" id="Bma-75-enQ"/>
+                        <outlet property="playButton" destination="L5P-hi-cOG" id="0QD-D8-3u6"/>
+                        <outlet property="sinkButton" destination="CGF-v8-qjg" id="aSn-zf-50g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+</document>
