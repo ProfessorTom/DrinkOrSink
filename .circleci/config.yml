@@ -1,23 +1,15 @@
 version: 2
 jobs:
-  build:
-
+  test:
     macos:
-      xcode: "9.2"
-
+      xcode: "9.2.0"
     steps:
       - checkout
       - run:
-          name: Build and run tests
+          name: Run tests
           command: fastlane scan
           environment:
             SCAN_DEVICE: iPhone 8 Plus
             SCAN_SCHEME: DrinkOrSink
       - store_test_results:
-          path: test_output/report.xml
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: scan-test-results
-      - store_artifacts:
-          path: ~/Library/Logs/scan
-          destination: scan-logs
+          path: fastlane/test_output/report.xml
