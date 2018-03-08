@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run: mkdir $FL_OUTPUT_DIR
-      - run: echo "ruby-2.5" > ~/.ruby-version
+      - run: echo "ruby-2.4" > ~/.ruby-version
       - run: bundle install
       - run: bundle exec fastlane test
       - store_artifacts:
