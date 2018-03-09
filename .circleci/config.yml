@@ -1,23 +1,5 @@
 version: 2
 jobs:
-  swiftlint:
-    docker:
-      - image: dantoml/swiftlint:latest
-    steps:
-      - checkout
-      - run: swiftlint lint --reporter junit | tee result.xml
-      - store_artifacts:
-          path: result.xml
-      - store_test_results:
-          path: result.xml
-
-  danger:
-    docker:
-      - image: dantoml/danger:latest
-    steps:
-      - checkout
-      - run: danger
-
   build-and-test:
     macos:
       xcode: "9.2.0"
@@ -33,6 +15,7 @@ jobs:
       - run: mkdir $FL_OUTPUT_DIR
       - run: echo "ruby-2.4" > ~/.ruby-version
       - run: bundle install
+      - run: brew install swiftlint
       - run: bundle exec fastlane test
       - run:
           command: cp $FL_OUTPUT_DIR/scan/report.junit $FL_OUTPUT_DIR/scan/results.xml
@@ -41,12 +24,10 @@ jobs:
           path: /Users/distiller/project/output
       - store_test_results:
           path: /Users/distiller/project/output/scan
-      - run: bash <(curl -s https://codecov.io/bash)
+      - run: bash <(curl -s https://codecov.io/bash) -f slather/cobertura.xml -X coveragepy -X gcov -X xcode
 
 workflows:
   version: 2
   build-and-test:
     jobs:
-      - swiftlint
-      - danger
       - build-and-test

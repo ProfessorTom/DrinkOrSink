@@ -5,4 +5,5 @@ before_install:
 - bundle update
 
 script:
+- brew install swiftlint
 - bundle exec fastlane test
