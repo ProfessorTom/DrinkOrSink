@@ -7,7 +7,12 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :test do
-    scan
+    if is_ci?
+      danger
+    end
+    swiftlint
+    scan(code_coverage: true)
+    slather
   end
 
   desc "Ad-hoc build"
@@ -27,7 +32,7 @@ platform :ios do
   lane :release do
     # match(type: "appstore")
     # snapshot
-    gym # Build your app - more options available
+    gym
     deliver(force: true)
     # frameit
   end

@@ -1,0 +1,8 @@
+coverage_service: cobertura_xml
+source_directory: DrinkOrSink
+output_directory: slather
+xcodeproj: DrinkOrSink.xcodeproj
+scheme: DrinkOrSink
+ignore:
+  - DrinkOrSinkTests/*
+  - DrinkOrSinkUITests/*
